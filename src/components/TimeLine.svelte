@@ -1,1 +1,16 @@
-<div class="TimeLine">TimeLine</div>
+<script>
+  import Card from "./Card.svelte";
+</script>
+
+<style>
+  .TimeLine {
+    padding: 4em 0 0 0;
+  }
+</style>
+
+<!-- TimeLine.svelte -->
+<div class="TimeLine">
+  <div class="TimeLine-container">
+    <Card />
+  </div>
+</div>
