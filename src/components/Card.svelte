@@ -5,6 +5,8 @@
 
   import { blur } from "svelte/transition";
 
+  import { likeCount } from "../store/store.js";
+
   export let username;
   export let location;
   export let photo;
@@ -16,6 +18,17 @@
 
   function handleModal() {
     isModal = !isModal;
+  }
+  let like = false;
+  let bookmark = false;
+
+  function handleLike() {
+    like = !like;
+    if (like) {
+      likeCount.update(n => n + 1);
+    } else {
+      likeCount.update(n => n - 1);
+    }
   }
 </script>
 
@@ -156,17 +169,26 @@
       </div>
     </div>
     <div class="Card-photo">
-      <figure>
+      <figure on:dblclick={handleLike}>
         <img src={photo} alt={username} />
       </figure>
     </div>
     <div class="Card-icons">
       <div class="Card-icons-firsts">
-        <i class="fas fa-heart" />
+        <i
+          class="fas fa-heart"
+          on:click={handleLike}
+          class:active-like={like} />
+        <!-- se activa si like es true -->
         <i class="fas fa-paper-plane" on:click={handleModal} />
       </div>
       <div class="Card-icons-second">
-        <i class="fas fa-bookmark" />
+        <i
+          class="fas fa-bookmark"
+          class:active-bookmark={bookmark}
+          on:click={() => (bookmark = !bookmark)} />
+        <!-- active bookmark en true -->
+        <!-- se activa con una funciona anonima -->
       </div>
     </div>
     <div class="Card-description">
