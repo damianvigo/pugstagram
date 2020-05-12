@@ -32,11 +32,13 @@
 <div class="Profile">
   <div class="Profile-content">
     <div class="Profile-avatar">
-      <img src="https://arepa.s3.amazonaws.com/oscar.png" alt="" />
+      <img
+        src="https://static.platzi.com/media/avatars/avatars/Damian_4d1dd3b8-a733-4ea1-ab0b-799052a5942a.jpg"
+        alt="" />
     </div>
     <div class="Profile-info">
-      <h2>{nickname}</h2>
-      <span>{name}</span>
+      <h2>Dami</h2>
+      <span>Frontend Developer</span>
     </div>
   </div>
 </div>
